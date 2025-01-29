@@ -1,7 +1,7 @@
 
 # Arquivos fonte padrão (linux) e outros sistemas
 #
-SRC-LNX = variaveis.f90 funcoes.f90 entrada.f90 principal.f90  \
+SRC-LNX = variaveis.f90 funcoes.f90 entrada.f90 simmht.f90  \
           
 OBJ-LNX = $(SRC-LNX:.f90=.o)
 
@@ -10,7 +10,7 @@ OBJ-LNX = $(SRC-LNX:.f90=.o)
 
 #ENGINE-LNX = gfortran
 ENGINE-LNX = ifort
-FLAGS-LNX = -m64 -O2 -qopenmp -mkl
+FLAGS-LNX = -m64 -O2 -qopenmp
 #FLAGS-LNX = -m64 -O2 -ldislin 
 #FLAGS-LNX = -m64 -O2 -openmp -traceback -fpe0 -g
 
@@ -19,10 +19,10 @@ FLAGS-LNX = -m64 -O2 -qopenmp -mkl
 
 
 sims.ex : $(SRC-LNX) 
-	$(ENGINE-LNX) $(FLAGS-LNX) -o simmht.ex $(SRC-LNX)
+	$(ENGINE-LNX) $(FLAGS-LNX) -o mht2d.ex $(SRC-LNX)
 
 
 #
 # Limpeza
 clean :
-	rm simmht.ex
+	rm mht2d.ex

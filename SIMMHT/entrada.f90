@@ -17,26 +17,18 @@ open(2,file='entrada.dat')
       READ (2,'(A)') texto
       READ (2,'(A)') texto
       READ (2,'(A)') texto
-      READ (2,'(A)') texto
-      READ (2,'(A)') texto
-!      READ (2,505) texto,xmin
-!      READ (2,505) texto,xmax
-!      READ (2,505) texto,ymin
-!      READ (2,505) texto,ymax
+      READ (2,505) texto,xmin
+      READ (2,505) texto,xmax
+      READ (2,505) texto,ymin
+      READ (2,505) texto,ymax
       READ (2,507) texto,m
       READ (2,507) texto,n
+      READ (2,508) texto,fileinput
+      READ (2,507) texto,Nrea          
       READ (2,'(A)') texto
       READ (2,'(A)') texto
-      READ (2,'(A)') texto
-      READ (2,508) texto,ELIPTICO
-      READ (2,508) texto,STEADY   
-!      READ (2,508) texto,CALCCAMPO
-      READ (2,508) texto,EXPLICIT 
-      READ (2,508) texto,QUIDUASLINHAS       
-      READ (2,'(A)') texto
-      READ (2,'(A)') texto
-      READ (2,'(A)') texto     
-!      READ (2,505) texto,raio
+      READ (2,'(A)') texto 
+      READ (2,505) texto,raio
       READ (2,505) texto,RHO1
       READ (2,505) texto,RHO2
       READ (2,505) texto,K1
@@ -49,14 +41,10 @@ open(2,file='entrada.dat')
       READ (2,'(A)') texto
       READ (2,'(A)') texto
       READ (2,505) texto,TZERO
-      READ (2,505) texto,T_ini
-      READ (2,505) texto,HZERO
-      READ (2,505) texto,omega
-      READ (2,505) texto,PHI
+      READ (2,505) texto,T_ini 
       READ (2,505) texto,MD      
-      READ (2,505) texto,ximag
-      READ (2,505) texto,pm
-      READ (2,505) texto,cor      
+      READ (2,505) texto,cor  
+      READ (2,505) texto,visc     
       READ (2,'(A)') texto
       READ (2,'(A)') texto
       READ (2,'(A)') texto
@@ -72,5 +60,4 @@ open(2,file='entrada.dat')
 t_int=t_dec
 t_tempi=t_tempr
  close(2)
-
 end subroutine entrada

@@ -5,39 +5,38 @@ module variaveis
 !############################################################
 implicit none
 
-integer n,m,i,j,k,l,s, npast, nt
+integer n,m,i,j,k,l,s, npast, Nrea, p
 real, dimension(:), allocatable:: T_ANTES
 real, dimension(:), allocatable:: T_AGORA
 real, dimension(:), allocatable:: T
-real, dimension(:), allocatable:: HX
-real, dimension(:), allocatable:: HY
-real, dimension(:), allocatable:: H
 real, dimension(:), allocatable:: ID
 real, dimension(:), allocatable:: x
 real, dimension(:), allocatable:: y
-real, dimension(:), allocatable:: xc
-real, dimension(:), allocatable:: yc
-real, dimension(:), allocatable:: raio
 real*16, dimension(:), allocatable:: W 
-real, dimension(:), allocatable:: B
-real, dimension(:,:), allocatable:: A
+real, dimension(:), allocatable:: HZERO
+real, dimension(:), allocatable:: raio_part
+real, dimension(:), allocatable:: omega
+real, dimension(:), allocatable::  PHI
+real, dimension(:), allocatable:: timesteady
+real, dimension(:), allocatable:: Tcenter
+real tc_antes, tc_agora
+integer, dimension(:), allocatable:: contagem
 real xmin,xmax,ymin,ymax, ylinha, xlinha
-real deltax,deltay, timesteady, tc_antes, tc_agora
-real dt, rmin, rmax, eps
+real deltax,deltay
+real dt, raio, xc, yc, rmin, rmax, eps, ax, by
 character(3) rea_char
-real*16 omega, alphazero, HZERO, raiomaximo, TZERO, T_ini
-real RHO1, RHO2, RHO3, RHOB, C1, C2, C3, CB, Q1, Q2, Q3, PHI
+real*16 alphazero, raiomaximo, TZERO, T_ini
+real RHO1, RHO2, RHO3, RHOB, C1, C2, C3, CB, Q1, Q2, Q3
 real K1,K2,K3, TB
 real DIFUSAO, PERFUSAO, GERACAO
 real AUXREAL, auxiliarreal
-integer AUXINT, contagem
-real muzero, MD, pm
-real npastreal, lreal, VP, raio_part, KB
-logical decaicampo, ELIPTICO, CIRCULAR
+integer AUXINT
+real muzero, MD
+real npastreal, lreal, VP, KB
+logical decaicampo, ELIPTICO, CIRCULAR, fileinput
 logical geracaodireta, STEADY, CALCCAMPO, EXPLICIT
-logical QUIDUASLINHAS
 real delta, VH, visc, gama, tauneel, taubrow, tauzero, taueff, ANISOTROPY
-real pi, qsi, chii, chizero, cor, ximag, dip
+real pi, qsi, chii, chizero, cor, ximag,pimag, dip
 real omegaestrela
 real*16 aux
 real a_xmin, a_xmax, b_ymin, b_ymax
@@ -64,6 +63,8 @@ real t_dec, tf, ti, tpro, sim_time, t_tempr
 ! x - vetor posição horizontal x
 ! y - vetor posição vertical y
 ! xmin, xmax, ymin, ymax - coordenadas dos nós de quina da malha
+! ax, by - semi-eixo da elipse, a -x, b -y
+! e - excentricidade da elipse
 ! ylinha, xlinha - posições do círculo externo hipotético para imposição de campo radial
 ! deltax, deltay - espaçamento entre nós em x e y respectivamente 
 ! dt - passo de tempo
