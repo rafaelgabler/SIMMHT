@@ -19,10 +19,10 @@ FLAGS-LNX = -m64 -O2 -qopenmp
 
 
 sims.ex : $(SRC-LNX) 
-	$(ENGINE-LNX) $(FLAGS-LNX) -o mht2d.ex $(SRC-LNX)
+	$(ENGINE-LNX) $(FLAGS-LNX) -o simmht.ex $(SRC-LNX)
 
 
 #
 # Limpeza
 clean :
-	rm mht2d.ex
+	rm simmht.ex
