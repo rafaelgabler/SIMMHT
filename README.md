@@ -16,8 +16,38 @@ This repository includes three codes:
 
 Bellow we provide a description of each one of these codes.
   
-
 ## SIMMHT
+
+This code was writen in FORTRAN and solves the time-dependent temperature field of a circular tumor subjected to magnetic hyperthermia (MHT) in a 2D finite differences mesh. The time evolution is solved explicitly. The governing equation solved is a non-linear second order PDE that incorporates the following physical mechanisms:
+
+- Heat diffusion;
+- Metabolic generation;
+- Heat tranfer through the blood perfusion;
+- Magnetic production term due to MHT;
+
+This code has been used before in other works of the group **[1]** and has been validated using an experimental in-vivo work **[2]**. The source code is organized in several files that are compiled using `make`. Therefore, in order to produce an executable file (program) based on the source code you can simply run the `make` command on a Linux terminal. The code has been tested based on compilations performed by the intel fortran compiler `ifort`, but it should also work with `gfortran`. In order to change the compilation instructions you should alter the `makefile` included in this repository inside the folder **SIMMHT**.
+
+The source code files are:
+
+- *entrada.dat*: configuration file where the user can alter the simulation data. This file is not necessary for compilation purposes, but the code was designed to read it in this specific format;
+  
+- *entrada.f90*: FORTRAN file that reads the configuration file and stores all information in terms of variables used through the calculations performed;
+  
+- *variaveis.f90*: FORTRAN module with the declaration of all global variables used in the code;
+  
+- *simmht.f90*: FORTRAN file that calls the necessary functions in a given order to perform the simulations that produce a database;
+  
+- *funcoes.f90*: FORTRAN module with all the subroutines used in the calculations;
+
+In order to run the simulations, the user needs to follow these steps:
+
+1 - Compile the solver by running the command: `make`. This shall produce an executable file named **simmht.ex**;
+
+2 - Run the simulations by typing: `./simmht.ex`. This procedure will generate two new files and at the same time will print on the terminal the time and the temperature at the center of the each realization. A given realization ends when the tumor reachs a steady state condition. When this occurs the program goes to the next realization. A large database with hundreds of realizations can take weeks of CPU time. The generated files are:
+
+- *generated_inputs.dat*: this is a large table with $N_{rea}$ lines, where $N_{rea}$ denotes the number of realizations selected by the user in the *entrada.dat* file. In each line the file the program prints the random values of $\phi$, $H_0$, $\omega$ and $a$ that will be simulated;
+    
+- *outputs.dat*: after the convergence of each realization, the same input variables are printed here with two new information: the steady state temperature at the center of the tumor and the time the system takes to reach this condition;
 
 ## MLTA - Matlab version
 
@@ -34,3 +64,9 @@ To install the scikit-learn (sklearn) package in the Spyder software, use the fo
 - Click on apply. Then, click in *restart kernel* in the options button on the right corner;
 
 The package can now be used.
+
+## References
+
+[1] Gontijo, Rafael Gabler, and Andrey Barbosa Guimarães. "Langevin dynamic simulations of magnetic hyperthermia in rotating fields." Journal of Magnetism and Magnetic Materials 565 (2023): 170171. [DOI: 10.1016/j.jmmm.2022.170171](https://doi.org/10.1016/j.jmmm.2022.170171).
+
+[2] Salloum, Maher, Ronghui Ma, and Liang Zhu. "An in-vivo experimental study of temperature elevations in animal tissue during magnetic nanoparticle hyperthermia." International Journal of Hyperthermia 24.7 (2008): 589-601. [DOI: 10.1080/02656730802203377](https://doi.org/10.1080/02656730802203377).
