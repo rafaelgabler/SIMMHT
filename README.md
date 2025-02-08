@@ -29,15 +29,15 @@ This code has been used before in other works of the group **[1]** and has been 
 
 The source code files are:
 
-- *entrada.dat*: configuration file where the user can alter the simulation data. This file is not necessary for compilation purposes, but the code was designed to read it in this specific format;
+- *config.dat*: configuration file where the user can alter the simulation data. This file is not necessary for compilation purposes, but the code was designed to read it in this specific format;
   
-- *entrada.f90*: FORTRAN file that reads the configuration file and stores all information in terms of variables used through the calculations performed;
+- *input.f90*: FORTRAN file that reads the configuration file and stores all information in terms of variables used through the calculations performed;
   
-- *variaveis.f90*: FORTRAN module with the declaration of all global variables used in the code;
+- *variables.f90*: FORTRAN module with the declaration of all global variables used in the code;
   
 - *simmht.f90*: FORTRAN file that calls the necessary functions in a given order to perform the simulations that produce a database;
   
-- *funcoes.f90*: FORTRAN module with all the subroutines used in the calculations;
+- *functions.f90*: FORTRAN module with all the subroutines used in the calculations;
 
 In order to run the simulations, the user needs to follow these steps:
 
