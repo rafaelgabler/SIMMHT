@@ -51,7 +51,25 @@ In order to run the simulations, the user needs to follow these steps:
 
 ## MLTA - Matlab version
 
+This code simply reads the database in a txt file named DS.txt, learn the patterns with these data and apply the regressor algorithms to predict values that are not in the trainning data. It also check for the performance of the regressor schemes. The hyperparameters used in the machine learning algorithms are estimated through another code that uses Bayesian optimization.
+
 ## MLTA - Python version
+
+This code is an extension of the MATLAB version of the MLTA programm, but focused on the regressor that provided the best performance, the ANN. It also comes with a graphic user interface developed using the customtkinter library where the user can define a single set of input parameters and after clicking on a button the algorithm prints the output parameters predicted by the ANN.
+
+In order to use this version the user must install the following packages:
+
+- matplotlib;
+- customtkinter;
+- sklearn;
+
+In order to install matplotlib you could type the following command in a terminal (for Debian/Ubuntu users):
+
+`sudo apt-get install python3-matplotlib`
+
+To install customtkinter please type (for Debian/Ubuntu users):
+
+`pip3 install customtkinter`  
 
 To install the scikit-learn (sklearn) package in the Spyder software, use the following steps:
 
@@ -64,6 +82,8 @@ To install the scikit-learn (sklearn) package in the Spyder software, use the fo
 - Click on apply. Then, click in *restart kernel* in the options button on the right corner;
 
 The package can now be used.
+
+
 
 ## References
 
