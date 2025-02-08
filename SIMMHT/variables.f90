@@ -1,4 +1,4 @@
-module variaveis
+module variables
 
 !############################################################
 !############ VARIABLES DEFINITION MODULE ##################
@@ -116,4 +116,4 @@ real t_dec, tf, ti, tpro, sim_time, t_tempr
 ! aux - variável auxiliar para implementação do uso de X'' no termo de geração magnética
 ! t_real, t_int - variáveis usadas para determinar intervalo de extração dos dados
 
-end module variaveis
+end module variables

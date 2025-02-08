@@ -1,21 +1,20 @@
-program mht2d
+program simmht
 
 use omp_lib
-!use lapack95
-!use f95_precision
+
 
 !##############################
 !#                            #
-!#    PROGRAM mht2d           #
+!#    PROGRAM simmht          #
 !#                            #
 !##############################
 
 ! Wrote by Rafael Gabler at 04/03/2021
  
-use variaveis
-use funcoes
+use variables
+use functions
 
-call entrada
+call input
 call cpu_time(ti)
 
 allocate(ID(m*n))
@@ -85,7 +84,7 @@ write(*,*)'#             ASSEMBLING ID VECTOR              #'
 write(*,*)'#                             				   #'
 write(*,*)'#################################################' 
  
- call principal
+ call main
  call cpu_time(tf)
 
 tpro=tf-ti

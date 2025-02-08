@@ -1,12 +1,12 @@
-subroutine entrada
+subroutine input
 
-use variaveis
+use variables
 
 505   FORMAT(1X,A54,1X,E11.4E2)
 507   FORMAT(1X,A54,1X,I6)
 508   FORMAT(1X,A54,L10)
 
-open(2,file='entrada.dat')
+open(2,file='config.dat')
       READ (2,'(A)') texto
       READ (2,'(A)') texto
       READ (2,'(A)') texto
@@ -60,4 +60,4 @@ open(2,file='entrada.dat')
 t_int=t_dec
 t_tempi=t_tempr
  close(2)
-end subroutine entrada
+end subroutine input

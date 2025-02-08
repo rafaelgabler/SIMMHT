@@ -1,7 +1,7 @@
-module funcoes
+module functions
 
 use omp_lib
-use variaveis
+use variables
 contains
 
 
@@ -84,7 +84,7 @@ end subroutine id_vector
 !#   SOLVING GOVERNING EQUATIONS          #
 !#                                        #
 !##########################################
-subroutine principal 
+subroutine main
 
 525 FORMAT(F12.4,F12.4,F12.4,F12.4,F12.4,F12.4,F12.4,F12.4)
 T=T_ini
@@ -191,7 +191,7 @@ end do
 102 write(*,*) 'END OF SIMULATION NUMBER',p
 end do
 
-end subroutine principal
+end subroutine main
 !#########################################
 
 !#########################################
@@ -432,4 +432,4 @@ end subroutine imag
 
 !#########################################
 
-end module funcoes 
+end module functions

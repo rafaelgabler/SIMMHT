@@ -1,7 +1,7 @@
 
 # Arquivos fonte padrão (linux) e outros sistemas
 #
-SRC-LNX = variaveis.f90 funcoes.f90 entrada.f90 simmht.f90  \
+SRC-LNX = variables.f90 functions.f90 input.f90 simmht.f90  \
           
 OBJ-LNX = $(SRC-LNX:.f90=.o)
 
